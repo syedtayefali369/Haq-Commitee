@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Gausia Haq Community - South Paindong Sector 55</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #57cc99;
+            --accent: #ffd166;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gradient: linear-gradient(135deg, #1a5f7a 0%, #57cc99 100%);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --glow: 0 0 15px rgba(87, 204, 153, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(26, 95, 122, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 95, 122, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-family: 'Roboto Slab', serif;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow);
+        }
+
+        .blog-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-category {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-title {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .card-excerpt {
+            color: #666;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .card-author {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .about-section {
+            background: white;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Roboto Slab', serif;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .events-section {
+            background: var(--light);
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .event-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+        }
+
+        .event-date {
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1rem;
+        }
+
+        .event-day {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .event-month {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .event-title {
+            font-family: 'Roboto Slab', serif;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(87, 204, 153, 0.2);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-family: 'Roboto Slab', serif;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Admin Panel Styles */
+        .admin-panel {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .admin-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .admin-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-mosque"></i>
+                    <div class="logo-text">
+                        <h1>Gausia Haq Community</h1>
+                        <p>South Paindong Sector 55</p>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#events">Events</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Welcome to Bangladesh Gausia Haq Community</h2>
+                <p>A spiritual community of Maizbhander Darbar, dedicated to spreading peace, love, and spiritual enlightenment through the teachings of Islam and Sufism.</p>
+                <a href="#about" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="blog">
+        <h2 class="section-title">Spiritual Insights</h2>
+        <div class="blog-grid">
+            <!-- Blog posts will be dynamically added here -->
+        </div>
+    </section>
+
+    <section class="container about-section" id="about">
+        <h2 class="section-title">About Our Community</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Spiritual Journey</h3>
+                <p>The Bangladesh Gausia Haq Community in South Paindong Sector 55 is a spiritual center following the teachings of Maizbhander Darbar. Our community is dedicated to promoting peace, harmony, and spiritual growth through Islamic principles and Sufi traditions.</p>
+                <p>We organize regular spiritual gatherings, educational programs, and community service activities to nurture the spiritual development of our members and contribute positively to society.</p>
+                <p>Under the guidance of our spiritual leaders, we strive to embody the values of compassion, humility, and service to humanity.</p>
+                <a href="#contact" class="btn">Join Our Community</a>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Community Gathering">
+            </div>
+        </div>
+    </section>
+
+    <section class="events-section" id="events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-grid">
+                <!-- Events will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="container contact-section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <div class="admin-panel hidden" id="adminPanel">
+        <h2 class="section-title">Admin Panel</h2>
+        <form class="admin-form" id="adminForm">
+            <h3>Add New Blog Post</h3>
+            <div class="form-group">
+                <input type="text" class="form-control" id="postTitle" placeholder="Post Title" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="postCategory" placeholder="Category" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="postContent" placeholder="Post Content" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="postImage" placeholder="Image URL">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="postAuthor" placeholder="Author Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="postDate" required>
+                </div>
+            </div>
+            <button type="submit" class="btn">Add Post</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Gausia Haq Community</h3>
+                    <p>South Paindong Sector 55, following the spiritual traditions of Maizbhander Darbar.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> South Paindong, Sector 55</li>
+                        <li><i class="fas fa-phone"></i> +880 XXXX-XXXXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@gausiahaq.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Bangladesh Gausia Haq Community. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="admin-toggle" id="adminToggle">
+        <i class="fas fa-cog"></i>
+    </div>
+
+    <script>
+        // Sample blog data
+        const blogPosts = [
+            {
+                id: 1,
+                title: "The Path to Spiritual Enlightenment",
+                category: "Spirituality",
+                excerpt: "Discover the journey towards inner peace and divine connection through the teachings of Maizbhander Darbar.",
+                image: "https://images.unsplash.com/photo-1543332143-4e8c27e3256f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                author: "Sheikh Ahmed",
+                date: "2023-10-15"
+            },
+            {
+                id: 2,
+                title: "Community Service: A Pillar of Faith",
+                category: "Community",
+                excerpt: "How serving others strengthens our faith and brings us closer to the divine purpose of creation.",
+                image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                author: "Brother Karim",
+                date: "2023-10-10"
+            },
+            {
+                id: 3,
+                title: "The Wisdom of Sufi Poetry",
+                category: "Teachings",
+                excerpt: "Exploring the deep spiritual insights contained in the poetic expressions of Sufi masters.",
+                image: "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                author: "Sister Fatima",
+                date: "2023-10-05"
+            }
+        ];
+
+        // Sample events data
+        const events = [
+            {
+                id: 1,
+                title: "Weekly Spiritual Gathering",
+                date: "2023-11-05",
+                day: "05",
+                month: "NOV"
+            },
+            {
+                id: 2,
+                title: "Community Iftar Program",
+                date: "2023-11-12",
+                day: "12",
+                month: "NOV"
+            },
+            {
+                id: 3,
+                title: "Quran Study Circle",
+                date: "2023-11-19",
+                day: "19",
+                month: "NOV"
+            },
+            {
+                id: 4,
+                title: "Charity Drive for Needy Families",
+                date: "2023-11-26",
+                day: "26",
+                month: "NOV"
+            }
+        ];
+
+        // DOM elements
+        const blogGrid = document.querySelector('.blog-grid');
+        const eventsGrid = document.querySelector('.events-grid');
+        const adminPanel = document.getElementById('adminPanel');
+        const adminToggle = document.getElementById('adminToggle');
+        const adminForm = document.getElementById('adminForm');
+        const contactForm = document.getElementById('contactForm');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderBlogPosts();
+            renderEvents();
+            setupEventListeners();
+        });
+
+        // Render blog posts
+        function renderBlogPosts() {
+            blogGrid.innerHTML = '';
+            blogPosts.forEach(post => {
+                const blogCard = document.createElement('div');
+                blogCard.className = 'blog-card';
+                blogCard.innerHTML = `
+                    <div class="card-img">
+                        <img src="${post.image}" alt="${post.title}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">${post.category}</span>
+                        <h3 class="card-title">${post.title}</h3>
+                        <p class="card-excerpt">${post.excerpt}</p>
+                        <div class="card-meta">
+                            <div class="card-author">
+                                <i class="fas fa-user"></i> ${post.author}
+                            </div>
+                            <div class="card-date">
+                                ${new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                blogGrid.appendChild(blogCard);
+            });
+        }
+
+        // Render events
+        function renderEvents() {
+            eventsGrid.innerHTML = '';
+            events.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                eventCard.innerHTML = `
+                    <div class="event-date">
+                        <div class="event-day">${event.day}</div>
+                        <div class="event-month">${event.month}</div>
+                    </div>
+                    <h3 class="event-title">${event.title}</h3>
+                    <p>Join us for this special community event</p>
+                `;
+                eventsGrid.appendChild(eventCard);
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Admin toggle
+            adminToggle.addEventListener('click', function() {
+                adminPanel.classList.toggle('hidden');
+            });
+
+            // Admin form submission
+            adminForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const newPost = {
+                    id: blogPosts.length + 1,
+                    title: document.getElementById('postTitle').value,
+                    category: document.getElementById('postCategory').value,
+                    excerpt: document.getElementById('postContent').value.substring(0, 150) + '...',
+                    image: document.getElementById('postImage').value || 'https://images.unsplash.com/photo-1543332143-4e8c27e3256f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+                    author: document.getElementById('postAuthor').value,
+                    date: document.getElementById('postDate').value
+                };
+                
+                blogPosts.unshift(newPost);
+                renderBlogPosts();
+                adminForm.reset();
+                adminPanel.classList.add('hidden');
+                
+                alert('New blog post added successfully!');
+            });
+
+            // Contact form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+    </script>
+</body>
+</html>
